@@ -1,0 +1,35 @@
+{
+    "database":
+    {
+        "host": "localhost",
+        "port": null,
+        "db": "klenty",
+        "username": null,
+        "password": null
+    },
+    "app":
+    {
+        "port": 3000,
+        "resaveSession": false,
+        "saveUninitializedSession": false,
+        "sessionSecret": "secret"
+    },
+    "rest":
+    {
+        "authentication": "local",
+        "successfulStatus": 200,
+        "unauthorizedStatus": 401,
+        "baddataStatus": 422,
+        "successfullMessage":
+        {
+            "status": "SUCCESS",
+            "message": "Request Successfull"
+        },
+        "failureMessage":
+        {
+            "status": "FAILED",
+            "message": "Request Failed"
+        },
+        "unAuthorizedMessage": "UNAUTHERORISED REQUEST,please login again"
+    }
+}

@@ -1,0 +1,10 @@
+const mongoose = require('mongoose');
+const config = require('./../settings.json').database;
+let connectingUrl = "mongodb://";
+if (config.username) connectingUrl = `${connectingUrl}${config.username}`;
+if(config.password) connectingUrl = `${connectingUrl}:${config.password}@`;
+if (config.host) connectingUrl = `${connectingUrl}${config.host}`;
+if(config.port) connectingUrl = `${connectingUrl}:${config.port}`;
+if(config.db) connectingUrl = `${connectingUrl}/${config.db}`;
+mongoose.connect(connectingUrl, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+module.exports = mongoose;

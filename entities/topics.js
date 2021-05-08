@@ -20,7 +20,7 @@ class Topics {
     
     async fetchTopics(request, response) {
         let query_conditions = {}
-        if (request.query && request.query.topic && request.query.topic.length) query_conditions._id = request.query.topic;
+        if (request.query && request.query.topic && request.query.topic.length) query_conditions.topic = request.query.topic;
         let allTopics = await TopicDetails.find(query_conditions);
         let responseMessage = config.successfullMessage;
         responseMessage.message = allTopics;

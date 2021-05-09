@@ -1,6 +1,7 @@
 const mongoose = require('./../database/mongodb.js');
 const ReplyDetails = require('./../models/replydetails.js');
 const UserDetails = require('./../models/userdetails.js');
+const TopicDetails = require('./../models/topicdetails.js');
 const config = require('./../settings.json').rest;
 
 class Replies {
@@ -23,7 +24,7 @@ class Replies {
     }
 
     async fetchReplies(request, response) {
-        let query_conditions = {}
+        let query_conditions = {};
         let responseMessage = config.successfullMessage;
         if (request.query && request.query.topic && request.query.topic.length) query_conditions.topic = request.query.topic;
         let allReplies = await ReplyDetails.find(query_conditions);

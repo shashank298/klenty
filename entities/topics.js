@@ -27,7 +27,7 @@ class Topics {
         response.send(responseMessage);
     }
 
-    async updateRecord(request, response) {
+    async updateTopic(request, response) {
         let param_conditions = {}
         param_conditions.created_by = request.user._id;
         let responseMessage = config.failureMessage;
@@ -53,7 +53,7 @@ class Topics {
         response.send(responseMessage)
     }
 
-    async deleteRecord(request, response) {
+    async deleteTopic(request, response) {
         let param_conditions = {}
         param_conditions.created_by = request.user._id;
         let responseMessage = config.failureMessage;
@@ -63,7 +63,7 @@ class Topics {
             response.status(config.baddataStatus).send(responseMessage);
             return;
         }
-        let deleteRespone = await TopicDetails.findByIdAndRemove(param_conditions).catch((error) => { return error });
+        let deleteRespone = await TopicDetails.deleteOne(param_conditions).catch((error) => { return error });
         if (deleteRespone instanceof Error) {
             responseMessage.message = deleteRespone.message;
             response.status(config.baddataStatus).send(responseMessage);

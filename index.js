@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const config = require('./settings.json').app;
@@ -13,6 +14,7 @@ const port = process.env.PORT || config.port;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressSession);
+app.use(cors());
 
 app.listen(port, () => console.log('App listening on port ' + port));
 app.use(passport.initialize());

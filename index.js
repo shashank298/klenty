@@ -14,7 +14,7 @@ const port = process.env.PORT || config.port;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressSession);
-app.use(cors());
+app.use(cors({credentials: true, origin: true}));
 
 app.listen(port, () => console.log('App listening on port ' + port));
 app.use(passport.initialize());
